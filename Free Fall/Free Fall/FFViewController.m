@@ -38,20 +38,20 @@
    
     if(self.motionManager.deviceMotionAvailable)
     {
-        self.motionManager.deviceMotionUpdateInterval = 1.0f/2.0f;
+        self.motionManager.deviceMotionUpdateInterval = 1.0f/60.0f;
     
         [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXMagneticNorthZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion,NSError *error)
          {
              [scene enumerateChildNodesWithName:@"character" usingBlock:^(SKNode *node,BOOL *stop)
              {
                  if(motion.attitude.roll > 0)
-                     node.physicsBody.velocity = CGVectorMake(25,0);
+                     node.physicsBody.velocity = CGVectorMake(200,0);
                  else if(motion.attitude.roll < 0)
-                     node.physicsBody.velocity = CGVectorMake(-25,0);
+                     node.physicsBody.velocity = CGVectorMake(-200,0);
                  else
                      node.physicsBody.velocity = CGVectorMake(0,0);
              }];
-             NSLog(@"%f",motion.attitude.roll);
+            // NSLog(@"%f",motion.attitude.roll);
              
         
          }];
@@ -60,7 +60,7 @@
 
 - (BOOL)shouldAutorotate
 {
-    return YES;
+    return NO;
 }
 
 @end

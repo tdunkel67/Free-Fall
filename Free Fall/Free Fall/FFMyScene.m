@@ -42,7 +42,7 @@
         
         character.physicsBody.categoryBitMask = self.characterBitMask;
         character.physicsBody.contactTestBitMask = self.obstacleBitMask;
-        character.physicsBody.collisionBitMask = 0;
+        //character.physicsBody.collisionBitMask = 0;
         character.physicsBody.allowsRotation = NO;
         character.name = @"character";
         character.zPosition = 0;
@@ -55,7 +55,7 @@
         
         [NSTimer scheduledTimerWithTimeInterval:45.0 target:self selector:@selector(sendPowerUp) userInfo:nil repeats:YES];
         
-        [NSTimer scheduledTimerWithTimeInterval:4.0 target:self selector:@selector(sendCloud) userInfo:nil repeats:YES];
+        //[NSTimer scheduledTimerWithTimeInterval:4.0 target:self selector:@selector(sendCloud) userInfo:nil repeats:YES];
         
         [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(sendObstacle) userInfo:nil repeats:YES];
     }
